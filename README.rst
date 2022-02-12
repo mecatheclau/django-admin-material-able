@@ -1,13 +1,13 @@
-=====
+===========================
 Django material admin V:0.1
-=====
+===========================
 
 Django material admin is a Django admin based on material design.
 
 This django app is tested on python 3.8 and django 3.0
 
 Installation
------------
+------------
 
 1. Add "material_admin" to your INSTALLED_APPS setting like this::
 
