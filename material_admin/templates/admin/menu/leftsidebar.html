@@ -1,0 +1,87 @@
+{% load static %}
+<nav class="pcoded-navbar">
+    <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+    <div class="pcoded-inner-navbar main-menu">
+        <div class="">
+            <div class="main-menu-header">
+                <img class="img-80 img-radius" src="{% static '/assets/images/profile.jpg' %}" alt="User-Profile-Image">
+                <div class="user-details">
+                    <span id="more-details"> {{request.user|title}} <i class="fa fa-caret-down"></i></span>
+                </div>
+            </div>
+            <div class="main-menu-content">
+                <ul>
+                    <li class="more-details">
+                        <!-- <a href="user-profile.html"><i class="ti-user"></i>View Profile</a> -->
+                        <a href="{% url 'admin:password_change' %}"><i class="ti-settings"></i>Change password</a>
+                        <a href="{% url 'admin:logout' %}"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="pcoded-navigation-label">Navigation</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="pcoded-hasmenu active pcoded-trigger">
+                    <a href="{% url 'admin:index' %}" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                        <span class="pcoded-mtext">Dashboard</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                {% if available_apps %}
+                    {% for app in available_apps %}
+                        
+                        {% for model in app.models %}
+                            {% if model.name != 'Villages' and model.name != 'Cells' and model.name != 'Sectors' and model.name != 'Districts' and model.name != 'Provinces' %}
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                    <span class="pcoded-micon"><i class="ti-view-grid"></i><b>W</b></span>
+                                    <span class="pcoded-mtext">{{model.name|title}}</span>
+                                    <!-- <span class="pcoded-badge label label-danger">100+</span> -->
+                                    <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        {% if model.perms.view %}
+                                            <li class="">
+                                                <a href="{{ model.admin_url }}" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext">All {{model.name|title}}</span>
+                                                <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                        {% if model.perms.add %}
+                                            <li class="">
+                                                <a href="{{ model.add_url }}" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext">Add {{model.object_name|title}}</span>
+                                                <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+    
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="">
+                    <a href="{% url 'admin:password_change' %}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-file"></i><b>D</b></span>
+                    <span class="pcoded-mtext">Change password</span>
+                    <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{% url 'admin:logout' %}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="ti-layout-list-post"></i><b>SI</b></span>
+                    <span class="pcoded-mtext">Log out</span>
+                    <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
+    </div>
+</nav>

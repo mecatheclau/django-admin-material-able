@@ -1,0 +1,4 @@
+include LICENSE
+include README.rst
+recursive-include material_admin/static *
+recursive-include material_admin/templates *

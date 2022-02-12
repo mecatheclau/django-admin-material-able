@@ -1,0 +1,120 @@
+{% load static %}
+{% if has_permission %}
+    <nav class="navbar header-navbar pcoded-header">
+        <div class="navbar-wrapper">
+            <div class="navbar-logo">
+                <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
+                    <i class="ti-menu"></i>
+                </a>
+                <div class="mobile-search waves-effect waves-light">
+                    <div class="header-search">
+                        <div class="main-search morphsearch-search">
+                            <div class="input-group">
+                                <span class="input-group-prepend search-close"><i class="ti-close input-group-text"></i></span>
+                                <input type="text" class="form-control" placeholder="Enter Keyword">
+                                <span class="input-group-append search-btn"><i class="ti-search input-group-text"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/">
+                    <!-- <img class="img-fluid" src="{% static '/assets/images/logo.png' %}" alt="Theme-Logo" /> -->
+                    <b><strong><span style="font-size: 15px; font-family:Verdana, Geneva, Tahoma, sans-serif">{{site_header|upper}}</span></strong></b>
+                </a>
+                <a class="mobile-options waves-effect waves-light">
+                <i class="ti-more"></i>
+                </a>
+            </div>
+            <div class="navbar-container container-fluid">
+                <ul class="nav-left">
+                    <li>
+                        <div class="sidebar_toggle">
+                            <a href="javascript:void(0)"><i class="ti-menu"></i></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+                            <i class="ti-fullscreen"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=""><b><strong>Menu 1</strong></b></a>
+                    </li>
+                    <li>
+                        <a href=""><b><strong>Menu 2</strong></b></a>
+                    </li>
+                </ul>
+                <ul class="nav-right">
+                    <li class="header-notification">
+                        
+                        <!-- <a href="#!" class="waves-effect waves-light">
+                            <i class="ti-bell"></i>
+                            <span class="badge bg-c-red"></span>
+                        </a> -->
+                        <ul class="show-notification">
+                            <li>
+                                <h6>Notifications</h6>
+                                <label class="label label-danger">New</label>
+                            </li>
+                            <li class="waves-effect waves-light">
+                                <div class="media">
+                                <img class="d-flex align-self-center img-radius" src="{% static '/assets/images/avatar-2.jpg' %}" alt="Generic placeholder image">
+                                <div class="media-body">
+                                <h5 class="notification-user">John Doe</h5>
+                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                <span class="notification-time">30 minutes ago</span>
+                                </div>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="header-notification">
+                        <!-- <a href="#!" class="displayChatbox1 waves-effect waves-light">
+                        <i class="ti-comments"></i>
+                        <span class="badge bg-c-green"></span>
+                        </a> -->
+                        <ul class="show-notification">
+                            <li>
+                                <h6>Message</h6>
+                                <label class="label label-danger">New</label>
+                            </li>
+                            <li class="waves-effect waves-light">
+                                <div class="media">
+                                <img class="d-flex align-self-center img-radius" src="{% static '/assets/images/avatar-2.jpg' %}" alt="Generic placeholder image">
+                                <div class="media-body">
+                                <h5 class="notification-user">John Doe</h5>
+                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                <span class="notification-time">30 minutes ago</span>
+                                </div>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="user-profile header-notification">
+                        <a href="#!" class="waves-effect waves-light">
+                            <img src="{% static '/assets/images/profile.jpg' %}" class="img-radius" alt="User-Profile-Image">
+                            <span>{{request.user.username|title}}</span>
+                            <i class="ti-angle-down"></i>
+                        </a>
+                        <ul class="show-notification profile-notification">
+                            {% if user.has_usable_password %}
+                            <li class="waves-effect waves-light">
+                                <a href="{% url 'admin:password_change' %}">
+                                <i class="ti-settings"></i> Change password
+                                </a>
+                            </li>
+                            {% endif %}
+                            <li class="waves-effect waves-light">
+                                <a href="{% url 'admin:logout' %}">
+                                <i class="ti-layout-sidebar-left"></i> Logout
+                                </a>
+                            </li>
+                        </ul>   
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endif %}

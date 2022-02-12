@@ -1,0 +1,37 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static customFilter %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}">{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/bower_components/morris.js/css/morris.css' %}">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-12  pt-5 pb-5">
+            <div class="card">
+                <div class="card-header bg-info">
+                    <h4>Hello! <b><strong>{{request.user|title}}</strong></b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+  
+{% endblock scripts %}
+

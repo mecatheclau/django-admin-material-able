@@ -1,0 +1,138 @@
+{% load i18n static %}
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" >
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+        <meta name="author" content="Codedthemes" />
+        <title>{% block title %}{% endblock %}</title>
+
+        <!-- TODO: default css for django -->
+        <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
+        {% block extrastyle %}{% endblock %}
+        {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}">{% endif %}
+        {% block extrahead %}{% endblock %}
+        {% block responsive %}
+
+        {% endblock %}
+        {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+        <!-- TODO: default css for django -->
+
+        <!--[if lt IE 10]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <link rel="icon" href="{% static '/assets/images/favicon.ico' %}" type="image/x-icon">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static '/assets/pages/waves/css/waves.min.css' %}" type="text/css" media="all">
+
+        <link rel="stylesheet" type="text/css" href="{% static '/bower_components/bootstrap/css/bootstrap.min.css' %}">
+
+        <link rel="stylesheet" href="{% static '/assets/pages/waves/css/waves.min.css' %}" type="text/css" media="all">
+
+        <link rel="stylesheet" type="text/css" href="{% static '/assets/icon/themify-icons/themify-icons.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static '/assets/css/font-awesome-n.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static '/assets/css/font-awesome.min.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static '/assets/css/style.css' %}">
+        
+    </head>
+    <body themebg-pattern="theme1">
+
+        <div class="theme-loader">
+            <div class="loader-track">
+            <div class="preloader-wrapper">
+            <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+            <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+            <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+            <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+            <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+            <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+            <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+            <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+            <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+            <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+            <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+            <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+            <div class="circle"></div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        <div class="row">
+            {% block messages %}
+                {% if messages %}
+                <ul class="messagelist">{% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+                {% endfor %}</ul>
+                {% endif %}
+            {% endblock messages %}
+        </div>
+        {% block content %}
+        
+        {% endblock content %}
+
+
+    <script type="text/javascript" src="{% static '/bower_components/jquery/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/bower_components/jquery-ui/js/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/bower_components/popper.js/js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/bower_components/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static '/assets/pages/waves/js/waves.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static '/bower_components/jquery-slimscroll/js/jquery.slimscroll.js' %}"></script>
+
+    <script type="text/javascript" src="{% static '/bower_components/modernizr/js/modernizr.js' %}"></script>
+
+    <script type="text/javascript" src="https://codedthemes.com/demos/admin-templates/material-able/bootstrap/files/bower_components/i18next/js/i18next.min.js"></script>
+    <script type="text/javascript" src="https://codedthemes.com/demos/admin-templates/material-able/bootstrap/files/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript" src="https://codedthemes.com/demos/admin-templates/material-able/bootstrap/files/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
+    <script type="text/javascript" src="https://codedthemes.com/demos/admin-templates/material-able/bootstrap/files/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
+    <script type="text/javascript" src="https://codedthemes.com/demos/admin-templates/material-able/bootstrap/files/assets/js/common-pages.js"></script>
+
+    {% block scripts %}
+      
+    {% endblock scripts %}
+
+    </body>
+
+</html>
