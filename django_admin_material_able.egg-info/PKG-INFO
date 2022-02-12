@@ -1,18 +1,18 @@
 Metadata-Version: 2.1
 Name: django-admin-material-able
-Version: 0.1
+Version: 0.2
 Summary: A Django admin based on material design.
 Home-page: https://github.com/mecatheclau/django-admin-material-able
 Author: MANIRAGABA Claude
 Author-email: mclaude@digitalsnatch.com
 License: MIT
-Download-URL: https://github.com/mecatheclau/django-admin-material-able/archive/refs/tags/v0.1.tar.gz
+Download-URL: https://github.com/mecatheclau/django-admin-material-able/archive/refs/tags/v0.2.tar.gz
 Platform: UNKNOWN
 Classifier: Environment :: Web Environment
 Classifier: Framework :: Django
 Classifier: Framework :: Django :: 3.0
 Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: MIT
+Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
