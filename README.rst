@@ -1,5 +1,5 @@
 ================================
-Django admin material able V:0.1
+Django admin material able V:0.2
 ================================
 
 Django material admin is a Django admin based on material design.
